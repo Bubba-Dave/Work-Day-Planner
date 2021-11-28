@@ -24,3 +24,7 @@ Click the save icon on the right to save the task to the planner, refresh the pa
 To remove a task, delete text from textfield then save and refresh to see that timeslot is now blank
 
 ![delete](./assets/images/landingpage.PNG?raw=true "delete")
+
+
+### Built By
+David Hart
