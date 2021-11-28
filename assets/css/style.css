@@ -26,12 +26,12 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
+.description {
   white-space: pre-wrap;
 }
 
 /* row attached to bootstrap*/
-.row{
+.row {
   margin-bottom: 2px;
 }
 

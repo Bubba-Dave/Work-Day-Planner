@@ -4,23 +4,30 @@ $(document).ready(function() {
     function getMomentNow () {
         const headerDateTime = moment().format('dddd [, ] MMMM Do');
         $('#currentDay').text(headerDateTime);
-        let momentHour = Number(momentHour);
+        let momentHour = moment().format('H')
+        momentHour = Number(momentHour);
         return momentHour;
     }
 
     let $dailyPlannerContainer = $('#dailyPlannerContainer');
+
     function createGridSystem() {
-        for (var hourOfDay = 9; hourOfDay <= 17; hourOfDay++){
+        for (var hourOfDay = 9; hourOfDay <= 17; hourOfDay++ ){
+
             let hourIndex = hourOfDay - 9;
 
             let $rowContainer = $("<div></div>")
+            .addClass ('row')
             .addClass('nonBootStrapRow')
             .attr('hour-Index',hourOfDay);
 
             var $columnHour = $("<div></div>")
-            .addclass("col-md-2 hour time-block")
+            .addClass("col-md-2 hour time-block")
+
             let $columnHourSpan = $('<span></span>')
+
             let $columnHourly = "";
+
             switch(hourOfDay) {
                 case 9: case 10: case 11:
                     columnHourly = hourOfDay + "AM";
@@ -52,7 +59,7 @@ $(document).ready(function() {
 
 
             let $saveButtonColumn = $("<div></div>")
-            .addClass('col-mad-1 saveBtn')
+            .addClass('col-md-1 saveBtn')
 
             let $saveBtnIcon = $("<i></i>")
             .addClass('fas fa-save btn-save')
@@ -94,7 +101,7 @@ $(document).ready(function() {
         for (var i = 0; i < 9; i++) {
             let hourIndex = $("#input-" + i).attr("hour-index");
             hourIndex = Number(hourIndex);
-            hourIndex +=9;
+            hourIndex += 9;
 
             if (hourIndex < momentHour) {
                 $("#input-" + i).css("background-color", "lightgrey");
@@ -119,6 +126,9 @@ $(document).ready(function() {
     });
 
 
-    
+    getMomentNow()
+    getTaskDetails();
+    createGridSystem();
+    taskRowColor()
 
 });
