@@ -12,6 +12,11 @@ textarea{
   border-left: 1px solid black;
   padding: 10px;
 }
+/* delete padding from columns */
+.col-md-2, .col-md-9, .col-md-1 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
 .jumbotron {
   text-align: center;
@@ -25,21 +30,43 @@ textarea{
   white-space: pre-wrap;
 }
 
-.time-block{
-  text-align: center;
-  border-radius: 15px;
+/* row attached to bootstrap*/
+.row{
+  margin-bottom: 2px;
 }
 
-.row {
+.nonBootStrapRow {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
+
+.time-block{
+  text-align: center;
+}
+
+.taskDescriptionSpan {
+	color: black;  
+	font-size: 12pt;
+	height:100%;
+	width: 100%;
+  }
+
+  /*input borders removed*/
+input {
+	background-color: transparent; 
+	border: none;
+  }
+
+input:focus, textarea:focus {
+	outline:  #0066ff solid 1px;
+
+  }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border-top: 1px solid #000000;
 }
 
 .past {
@@ -63,9 +90,16 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transition: all 2s ease-in-out;
+}
+
+.btn-save {
+  align-self: center;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
-  transition: all .3s ease-in-out;
 }
