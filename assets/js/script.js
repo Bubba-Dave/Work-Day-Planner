@@ -1,6 +1,6 @@
 $(document).ready(function() {
     taskDescrArr = new Array(9);
-
+   /* moment.js*/ 
     function getMomentNow () {
         const headerDateTime = moment().format('dddd [, ] MMMM Do');
         $('#currentDay').text(headerDateTime);
@@ -12,6 +12,7 @@ $(document).ready(function() {
     let $dailyPlannerContainer = $('#dailyPlannerContainer');
 
     function createGridSystem() {
+        /* 8hour work day for loop */
         for (var hourOfDay = 9; hourOfDay <= 17; hourOfDay++ ){
 
             let hourIndex = hourOfDay - 9;
@@ -20,7 +21,7 @@ $(document).ready(function() {
             .addClass ('row')
             .addClass('nonBootStrapRow')
             .attr('hour-Index',hourOfDay);
-
+            /*hour column*/
             var $columnHour = $("<div></div>")
             .addClass("col-md-2 hour time-block")
 
@@ -42,9 +43,9 @@ $(document).ready(function() {
                     break
 
             }
-
+            
             $columnHour.text(columnHourly);
-
+            /* task column*/
             let $descriptionColumn = $("<div></div>")
             .addClass("col-md-9");
 
@@ -56,8 +57,8 @@ $(document).ready(function() {
 
             
             $descriptionColumnSpan.val(taskDescrArr[hourIndex]);
-
-
+            
+            /* save button column */
             let $saveButtonColumn = $("<div></div>")
             .addClass('col-md-1 saveBtn')
 
@@ -66,6 +67,7 @@ $(document).ready(function() {
             .attr('id', `saveid-${hourIndex}`)
             .attr('save-id', hourIndex);
 
+            /* append to DOM */
             $rowContainer.append($columnHour);
 
             $rowContainer.append($descriptionColumn);
@@ -126,9 +128,9 @@ $(document).ready(function() {
     });
 
 
-    getMomentNow()
-    getTaskDetails();
-    createGridSystem();
-    taskRowColor()
+    getMomentNow() /* current time*/
+    getTaskDetails(); /* stores array from local storage to array */
+    createGridSystem(); /*grid system*/
+    taskRowColor() /* updates tasks colors accordingly */
 
 });
